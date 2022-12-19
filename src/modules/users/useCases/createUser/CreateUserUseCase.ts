@@ -3,7 +3,7 @@ import { IUserRepository } from "../../repositories/userRepository";
 
 type UserRequest = {
   name: string;
-  dob: Date;
+  dob: string;
   address: string;
   description: string;
 };

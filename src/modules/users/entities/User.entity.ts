@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 
 interface IUser {
   name: string;
-  dob: Date;
+  dob: string;
   address: string;
   description: string;
 }
@@ -10,7 +10,7 @@ interface IUser {
 export class User {
   id: string;
   name: string;
-  dob: Date;
+  dob: string;
   address: string;
   description: string;
   createdAt: Date;
