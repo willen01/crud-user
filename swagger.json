@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CRUD para usuário de um sistema",
+    "description": "Essa API é responsável por realizar todas as operações de um CRUD com dados de um usuário",
+    "version": "1.0"
+  },
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": ["user"],
+        "description": "Realiza o cadastro de um usuário",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "userRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário",
+            "example": "name example"
+          },
+          "dob": {
+            "type": "Date",
+            "description": "Data de aniversário",
+            "example": "2022-10-03"
+          },
+          "address": {
+            "type": "string",
+            "description": "Endereço do usuário",
+            "example": "address example"
+          },
+          "description": {
+            "type": "string",
+            "description": "descrição do usuário",
+            "example": "description example"
+          }
+        },
+        "required": ["name", "dob", "address", "description"]
+      },
+      "userResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário",
+            "example": "name example"
+          },
+          "dob": {
+            "type": "Date",
+            "description": "Data de aniversário",
+            "example": "2022-10-03"
+          },
+          "address": {
+            "type": "string",
+            "description": "Endereço do usuário",
+            "example": "address example"
+          },
+          "description": {
+            "type": "string",
+            "description": "descrição do usuário",
+            "example": "description example"
+          }
+        }
+      }
+    }
+  }
+}
