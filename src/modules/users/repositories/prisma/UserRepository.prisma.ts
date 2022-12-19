@@ -3,7 +3,7 @@ import { User } from "../../entities/User.entity";
 import { UserMapper } from "../../mapper/user.map";
 import { IUserRepository } from "../userRepository";
 
-export class UserRepository implements IUserRepository {
+export class UserPrismaRepository implements IUserRepository {
   async save(data: User): Promise<User> {
     const user = await prismaClient.user.create({
       data: {

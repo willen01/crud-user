@@ -23,7 +23,7 @@ export class UserRepositoryInMemory implements IUserRepository {
     return data;
   }
 
-  async findUserByName(name: string): Promise<User | undefined> {
-    return this.user.find((user) => user.name == name);
+  async findUserByName(name: string): Promise<User | null> {
+    return this.user.find((user) => user.name == name) || null;
   }
 }
