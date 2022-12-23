@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IUserRepository } from "../../repositories/userRepository";
-import { ReadUserUseCase } from "./ReadUserUseCase";
+import { ReadUserUseCase } from "./readUserUseCase";
 
 export class ReadUserController {
   constructor(private userRepository: IUserRepository) {}
