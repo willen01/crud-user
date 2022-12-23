@@ -1,16 +1,15 @@
 import { Request, Response } from "express";
 import { IUserRepository } from "../../repositories/userRepository";
-import { ReadUserUseCase } from "./readUserUseCase";
+import { ReadUserUseCase } from "./ReadUserUseCase";
 
 export class ReadUserController {
   constructor(private userRepository: IUserRepository) {}
 
   async handle(request: Request, response: Response) {
-    const { name } = request.body;
+    const { name } = request.params;
     try {
       const readUserCase = new ReadUserUseCase(this.userRepository);
-
-      const user = await readUserCase.execute(name);
+      const user = await readUserCase.execute(name as string);
       response.json(user);
     } catch (error: any) {
       return response

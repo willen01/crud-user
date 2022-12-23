@@ -7,6 +7,6 @@ export class ReadUserUseCase {
     const findUserByName = await this.userRepository.findUserByName(name);
 
     if (findUserByName) return findUserByName;
-    else throw new Error("User not exists");
+    else throw new Error("User not found");
   }
 }
