@@ -9,6 +9,7 @@
     "/user": {
       "post": {
         "tags": ["user"],
+        "summary": "Cadastra um novo usuário",
         "description": "Realiza o cadastro de um usuário",
         "requestBody": {
           "content": {
@@ -34,6 +35,7 @@
     },
     "/user/{name}": {
       "get": {
+        "summary": "Busca um usuário cadastrado pelo nome",
         "parameters": [
           {
             "name": "name",
