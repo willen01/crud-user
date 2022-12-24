@@ -1,6 +1,7 @@
 import { prismaClient } from "../../../../infra/database/prisma.config";
 import { User } from "../../entities/User.entity";
 import { UserMapper } from "../../mapper/user.map";
+import { UpdateUserRequest } from "../../useCases/updateUser/updateUserUseCase";
 import { IUserRepository } from "../userRepository";
 
 export class UserPrismaRepository implements IUserRepository {
@@ -24,6 +25,23 @@ export class UserPrismaRepository implements IUserRepository {
     });
 
     if (user) return UserMapper.prismaToEntityUser(user);
+    return null;
+  }
+
+  async update(name: string, data: UpdateUserRequest): Promise<User | null> {
+    const user: unknown = await prismaClient.user.update({
+      where: {
+        name,
+      },
+      data: {
+        ...data,
+      },
+    });
+
+    if (user) {
+      return user as User;
+    }
+
     return null;
   }
 }

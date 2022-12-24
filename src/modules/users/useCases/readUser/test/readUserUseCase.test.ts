@@ -34,6 +34,6 @@ describe("readUserUseCase", () => {
 
     expect(async () => {
       await readUserUseCase.execute("name");
-    }).rejects.toThrow("User not exists");
+    }).rejects.toThrow("User not found");
   });
 });
