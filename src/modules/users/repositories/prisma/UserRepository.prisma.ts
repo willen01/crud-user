@@ -35,6 +35,7 @@ export class UserPrismaRepository implements IUserRepository {
       },
       data: {
         ...data,
+        dob: new Date(data.dob),
       },
     });
 

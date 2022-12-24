@@ -63,6 +63,44 @@
             "description": "User not exists"
           }
         }
+      },
+      "patch": {
+        "tags": ["user"],
+        "summary": "Atualiza os dados de um cliente cadastrado",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateUserResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not exists"
+          }
+        }
       }
     }
   },
@@ -120,6 +158,66 @@
         }
       },
       "listUserResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "id do usuario",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário",
+            "example": "name example"
+          },
+          "dob": {
+            "type": "Date",
+            "description": "Data de aniversário",
+            "example": "2022-10-03"
+          },
+          "address": {
+            "type": "string",
+            "description": "Endereço do usuário",
+            "example": "address example"
+          },
+          "description": {
+            "type": "string",
+            "description": "descrição do usuário",
+            "example": "description example"
+          },
+          "createAt": {
+            "type": "string",
+            "description": "Data de cadastro do usuário",
+            "format": "date-time"
+          }
+        }
+      },
+      "userUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário",
+            "example": "name example"
+          },
+          "dob": {
+            "type": "Date",
+            "description": "Data de aniversário",
+            "example": "2022-10-03"
+          },
+          "address": {
+            "type": "string",
+            "description": "Endereço do usuário",
+            "example": "address example"
+          },
+          "description": {
+            "type": "string",
+            "description": "descrição do usuário",
+            "example": "description example"
+          }
+        }
+      },
+      "updateUserResponse": {
         "type": "object",
         "properties": {
           "id": {
