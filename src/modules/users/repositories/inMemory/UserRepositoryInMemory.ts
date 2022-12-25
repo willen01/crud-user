@@ -45,4 +45,14 @@ export class UserRepositoryInMemory implements IUserRepository {
       return updatedUser;
     }
   }
+
+  async delete(name: string): Promise<boolean> {
+    // const findUser = this.user.findIndex(item => item.name == name);
+    const filteredUser = this.user.filter((item) => item.name != name);
+    if (filteredUser.length != this.user.length) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

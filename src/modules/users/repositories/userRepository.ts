@@ -5,4 +5,5 @@ export interface IUserRepository {
   save(data: User): Promise<User>;
   findUserByName(name: string): Promise<User | null>;
   update(name: string, data: UpdateUserRequest): Promise<User | null>;
+  delete(name: string): Promise<boolean>;
 }
