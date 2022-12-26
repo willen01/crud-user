@@ -47,13 +47,15 @@ export class UserPrismaRepository implements IUserRepository {
   }
 
   async delete(name: string): Promise<boolean> {
-    const deleteUser = await prismaClient.user.delete({
-      where: {
-        name,
-      },
-    });
-
-    if (deleteUser) return true;
-    return false;
+    try {
+      await prismaClient.user.delete({
+        where: {
+          name: name,
+        },
+      });
+      return true;
+    } catch {
+      return false;
+    }
   }
 }
