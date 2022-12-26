@@ -12,7 +12,7 @@ export class DeleteUserController {
       return response.status(200).json();
     } catch (error: any) {
       return response
-        .status(error.statusCode || 400)
+        .status(error.statusCode || 404)
         .json({ error: error.message });
     }
   }
