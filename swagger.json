@@ -67,6 +67,7 @@
       "patch": {
         "tags": ["user"],
         "summary": "Atualiza os dados de um usuário cadastrado",
+        "description": "Realiza a atualização dos dados de um usuário cadastrado",
         "parameters": [
           {
             "name": "name",
@@ -99,6 +100,32 @@
           },
           "404": {
             "description": "User not exists"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["user"],
+        "summary": "Remove um usuário cadastrado",
+        "description": "Realiza a remoção de um usuário cadastrado",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }
